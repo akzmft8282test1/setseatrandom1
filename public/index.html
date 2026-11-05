@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>우리 반 자리 배치</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <h1 id="title">우리 반 자리 배치</h1>
+  <p class="status" id="status" role="status"></p>
+
+  <div class="bar modes" role="group" aria-label="모드 선택">
+    <button class="btn mode" type="button" data-mode="seat">자리 배치</button>
+    <button class="btn mode" type="button" data-mode="pair">짝꿍 지정</button>
+    <button class="btn mode" type="button" data-mode="desk">책상 바꾸기</button>
+  </div>
+  <div class="bar">
+    <button class="btn main" type="button" id="rand">랜덤 배치</button>
+    <button class="btn" type="button" id="gather">짝꿍 붙이기</button>
+    <button class="btn" type="button" id="clear">모두 비우기</button>
+    <button class="btn" type="button" id="copy">결과 복사</button>
+    <button class="btn" type="button" id="png">PNG로 내보내기</button>
+    <button class="btn" type="button" id="roster">명단 편집</button>
+  </div>
+
+  <main id="board">
+    <section class="pool" id="poolBox" aria-label="대기 카드">
+      <h2>대기 카드<span id="poolCount"></span> · 카드를 누른 뒤 자리를 누르거나, 끌어다 놓으세요</h2>
+      <div class="chips" id="pool"></div>
+    </section>
+
+    <section class="pairsBox" id="pairsBox" aria-label="짝꿍 목록">
+      <h2>짝꿍 목록<span id="pairCount"></span>
+        <button class="linkbtn" type="button" id="unpairAll" hidden>모두 해제</button>
+      </h2>
+      <div class="chips" id="pairList"></div>
+    </section>
+
+    <div class="teacher">교탁</div>
+    <div class="cols" id="cols"></div>
+  </main>
+
+  <p class="legend">주황색 책상은 짝꿍으로 지정된 쌍이에요. 카드 왼쪽의 색 띠가 같으면 같은 짝꿍이에요.<br>
+    <b>짝꿍 지정</b> 모드에서 학생 두 명을 차례로 누르면, 어디에 앉아 있든 한 쌍이 되어 같은 책상에 앉아요.</p>
+
+  <div class="modal" id="pngModal" hidden role="dialog" aria-label="PNG 미리보기">
+    <img id="pngImg" alt="자리 배치 결과 이미지">
+    <div class="bar"><button class="btn main" type="button" id="pngSave">PNG 저장</button><button class="btn" type="button" id="pngClose">닫기</button></div>
+    <p>저장이 안 되면 이미지를 길게 누르거나 우클릭해서 저장하세요.</p>
+  </div>
+
+  <div class="modal" id="rosterModal" hidden role="dialog" aria-label="명단 편집">
+    <div class="panel">
+      <h2>명단 편집</h2>
+      <p>한 줄에 한 명씩 적어 주세요. 이 브라우저에만 저장돼요.</p>
+      <textarea id="rosterText" rows="12" spellcheck="false" aria-label="학생 명단"></textarea>
+      <div class="bar">
+        <button class="btn main" type="button" id="rosterSave">저장</button>
+        <button class="btn" type="button" id="rosterReset">기본 명단으로</button>
+        <button class="btn" type="button" id="rosterClose">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>
