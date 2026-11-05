@@ -1,0 +1,19 @@
+{
+  "name": "classroom-seat-chart",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "우리 반 자리 배치 - 짝꿍 지정, 랜덤 배치, PNG 내보내기",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
